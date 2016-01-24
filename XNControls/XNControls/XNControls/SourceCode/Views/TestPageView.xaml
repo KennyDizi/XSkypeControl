@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="XNControls.SourceCode.Views.TestPageView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:XNControls.SourceCode.Behaviors;assembly=XNControls"
+             xmlns:controls="clr-namespace:XNControls.SourceCode.Controls;assembly=XNControls"
+             Title="This is Test Page">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout>
+            <Button Command="{Binding ShowAnimCommand}" Text="Start anim" />
+        </StackLayout>
+        <controls:SkypeAnimControl Grid.Row="1"
+                                   HeightRequest="0"
+                                   HorizontalOptions="FillAndExpand"
+                                   IsShowAnim="{Binding IsShowSkypeAnim}"
+                                   VerticalOptions="FillAndExpand">
+            <controls:SkypeAnimControl.Behaviors>
+                <behaviors:SkypeAnimControlBehavior HeightRequest="300" />
+            </controls:SkypeAnimControl.Behaviors>
+            <Label x:Name="LabelString"
+                   HeightRequest="200"
+                   HorizontalOptions="Center"
+                   Text="{Binding Message}"
+                   VerticalTextAlignment="Center" />
+        </controls:SkypeAnimControl>
+    </Grid>
+</ContentPage>
